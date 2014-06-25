@@ -1,17 +1,17 @@
 (function() {
 
-  function Events() {
+  function EventEmitter() {
     this.events = {};
   }
 
-  Events.prototype.on = function(eventName, fn) {
+  EventEmitter.prototype.on = function(eventName, fn) {
     if(!this.events[eventName]) {
       this.events[eventName] = [];
     }
     this.events[eventName].push(fn);
   };
 
-  Events.prototype.once = function(eventName, fn) {
+  EventEmitter.prototype.once = function(eventName, fn) {
     var self = this;
     this.on(eventName, function once() {
       fn.apply(null, arguments);
@@ -19,7 +19,7 @@
     });
   };
 
-  Events.prototype.off = function(eventName, fn) {
+  EventEmitter.prototype.off = function(eventName, fn) {
     if(!fn) {
       delete this.events[eventName];
       return;
@@ -34,7 +34,7 @@
     }
   };
 
-  Events.prototype.emit = function() {
+  EventEmitter.prototype.emit = function() {
     var args = Array.prototype.slice.call(arguments);
     var eventName = args.shift();
 
@@ -47,17 +47,17 @@
 
   // Node
   if(typeof module !== 'undefined' && module.exports) {
-    module.exports = Events;
+    module.exports = EventEmitter;
   }
   // AMD
   else if(typeof define !== 'undefined' && define.amd) {
     define([], function() {
-      return Events;
+      return EventEmitter;
     });
   }
   // Browser
   else {
-    window.Events = Events;
+    window.EventEmitter = EventEmitter;
   }
 
 })();
