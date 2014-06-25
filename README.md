@@ -1,3 +1,3 @@
-events
-======
+eventemitter
+============
 ### Lightweight isomorphic event emitter

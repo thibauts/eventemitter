@@ -1,8 +1,8 @@
 {
-  "name": "events",
+  "name": "eventemitter",
   "version": "0.1.0",
   "description": "Lightweight isomorphic event emitter",
-  "main": "events.js",
+  "main": "eventemitter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,6 @@
   "license": "MIT",
   "repository": {
   	"type": "git",
-  	"url": "git://github.com/thibauts/events.git"
+  	"url": "git://github.com/thibauts/eventemitter.git"
   }
 }
